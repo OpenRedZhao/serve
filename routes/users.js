@@ -37,7 +37,8 @@ router.post('/login', async(req, res, next) => {
         res.send({code:-1, msg:'账号或密码不正确'})
       }else{
 
-       let  menu =  [
+       let  data = { 
+         menu: [
           {
             path: '/',
             name: 'home',
@@ -80,9 +81,10 @@ router.post('/login', async(req, res, next) => {
             ]
           }
         ]
+      }
         //生成token 存储信息 密钥 过期时间
         let token = jwt.sign({username}, PRIVATE_KEY, {expiresIn:EXPIRESD})
-        res.send({code:0, msg:'登录成功', token: token, data: menu})
+        res.send({code:0, msg:'登录成功', token: token, data: data})
       }
     }
   }catch(e){
