@@ -37,7 +37,7 @@ router.post('/login', async(req, res, next) => {
         res.send({code:-1, msg:'账号或密码不正确'})
       }else{
          // 判断账号和密码是否对应
-      if (username === '18289399013' && password === 'zhao201699') {
+      if (username === '18289399013') {
         let  menu = [
           {
               path: '/',
