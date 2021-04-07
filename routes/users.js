@@ -83,7 +83,7 @@ router.post('/login', async(req, res, next) => {
             ]
         //生成token 存储信息 密钥 过期时间
         let token = jwt.sign({username}, PRIVATE_KEY, {expiresIn:EXPIRESD})
-        res.send({code:0, msg:'登录成功', token: token,  menu: menu})
+        res.send({code:0, msg:'登录成功', token: token,  data: menu})
       }
       }
     }
