@@ -38,59 +38,7 @@ router.post('/login', async(req, res, next) => {
       }else{
         //生成token 存储信息 密钥 过期时间
         let token = jwt.sign({username}, PRIVATE_KEY, {expiresIn:EXPIRESD})
-        res.send(
-          {
-            code:0, 
-            msg:'登录成功', 
-            token: token,
-            data: {
-              menu: [
-                {
-                  path: '/',
-                  name: 'home',
-                  label: '首页',
-                  icon: 's-home',
-                  url: 'Home/Home'
-                },
-                {
-                  path: '/video',
-                  name: 'video',
-                  label: '视频管理页',
-                  icon: 'video-play',
-                  url: 'VideoManage/VideoManage'
-                },
-                {
-                  path: '/user',
-                  name: 'user',
-                  label: '用户管理页',
-                  icon: 'user',
-                  url: 'UserManage/UserManage'
-                },
-                {
-                  label: '其他',
-                  icon: 'location',
-                  children: [
-                    {
-                      path: '/page1',
-                      name: 'page1',
-                      label: '页面1',
-                      icon: 'setting',
-                      url: 'Other/PageOne'
-                    },
-                    {
-                      path: '/page2',
-                      name: 'page2',
-                      label: '页面2',
-                      icon: 'setting',
-                      url: 'Other/PageTwo'
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-          
-          )
+        res.send({code:0, msg:'登录成功', token: token})
       }
     }
   }catch(e){
