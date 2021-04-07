@@ -36,6 +36,8 @@ router.post('/login', async(req, res, next) => {
       if(!result || result.length === 0){
         res.send({code:-1, msg:'账号或密码不正确'})
       }else{
+         // 判断账号和密码是否对应
+      if (username === '18289399013' && password === 'zhao201699') {
         let  menu = [
           {
               path: '/',
@@ -79,6 +81,31 @@ router.post('/login', async(req, res, next) => {
           ]
        }
      ]
+    } else {
+        let  menu = [
+          {
+              path: '/',
+              name: 'home',
+              label: '首页',
+              icon: 's-home',
+              url: 'Home/Home'
+          },
+          {
+              path: '/video',
+              name: 'video',
+              label: '视频管理页',
+              icon: 'video-play',
+              url: 'VideoManage/VideoManage'
+          },
+          {
+              path: '/user',
+              name: 'user',
+              label: '用户管理页',
+              icon: 'user',
+              url: 'UserManage/UserManage'
+          }
+      ]
+    }
         //生成token 存储信息 密钥 过期时间
         let token = jwt.sign({username}, PRIVATE_KEY, {expiresIn:EXPIRESD})
         res.send({code:0, msg:'登录成功', token: token, menu: menu})
