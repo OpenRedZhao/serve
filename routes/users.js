@@ -141,6 +141,14 @@ router.post('/upload', upload.single('head_img'), async(req, res, next) => {
   res.send({code:0, msg:'上传成功', data:imgUrl})
 });
 
+//视频上传接口
+router.post('/videos', upload.single('head_img'), async(req, res, next) => {
+  console.log(req.file)
+  let videoPath = req.file.path.split('public')[1] //分割前部分看作数组 0 后部分看作数组 1
+  let videoUrl = 'http://115.28.130.168:3000' +  videoPath //地址拼接
+  res.send({code:0, msg:'上传成功', data:videoUrl})
+});
+
 //用户信息更新接口
 router.post('/updateUser', async(req, res, next) => {
   let {nickname, head_img} = req.body
