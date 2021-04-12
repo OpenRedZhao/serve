@@ -70,7 +70,7 @@ router.get('/myList', async(req, res, next) => {
     let userSql = 'select id from user where username = ?'
     let user = await querySql(userSql, [username])
     let user_id = user[0].id
-    let sql = 'SELECT id, title, content, DATE_FORMAT(create_time,"%Y-%m-%d %H:%i:%s") AS create_time FROM article WHERE user_id = ? ORDER BY create_time DESC'
+    let sql = 'SELECT id, title, content, video_url, DATE_FORMAT(create_time,"%Y-%m-%d %H:%i:%s") AS create_time FROM article WHERE user_id = ? ORDER BY create_time DESC'
     let result = await querySql(sql, [user_id])
     res.send({code:0, msg:'获取成功',  data:result})
   }catch(e){
