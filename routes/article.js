@@ -54,7 +54,7 @@ router.post('/delete', async(req, res, next) => {
 //获取全部博客列表接口
 router.get('/allList', async(req, res, next) => {
   try {
-    let sql = 'SELECT id, title, content, DATE_FORMAT(create_time,"%Y-%m-%d %H:%i:%s") AS create_time FROM article ORDER BY create_time DESC'
+    let sql = 'SELECT id, title, content, video_url, DATE_FORMAT(create_time,"%Y-%m-%d %H:%i:%s") AS create_time FROM article ORDER BY create_time DESC'
     let result = await querySql(sql)
     res.send({code:0, msg:'获取成功',  data:result})
   }catch(e){
