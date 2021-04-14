@@ -83,7 +83,7 @@ router.get('/myList', async(req, res, next) => {
 router.get('/detail', async(req, res, next) => {
   let article_id = req.query.article_id //获取前端id
   try {
-    let sql = ' select id, title, content, DATE_FORMAT(create_time,"%Y-%m-%d %H:%i:%s") AS create_time from article where id = ?'
+    let sql = ' select id, title, content, video_url, DATE_FORMAT(create_time,"%Y-%m-%d %H:%i:%s") AS create_time from article where id = ?'
     let result = await querySql(sql, [article_id])
     res.send({code:0, msg:'获取成功',  data:result[0]}) //获取只有一个结果 result[0]
   }catch(e){
