@@ -61,13 +61,13 @@ router.post('/login', async(req, res, next) => {
               url: 'UserManage/UserManage'
           },
           {
-              label: '其他',
+              label: '发布管理页',
               icon: 'location',
               children: [
               {
                   path: '/page1',
                   name: 'page1',
-                  label: '页面1',
+                  label: '发布列表',
                   icon: 'setting',
                   url: 'Other/PageOne'
               },
