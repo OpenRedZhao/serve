@@ -74,7 +74,7 @@ router.post('/login', async(req, res, next) => {
               {
                   path: '/page2',
                   name: 'page2',
-                  label: '页面2',
+                  label: '页面',
                   icon: 'setting',
                   url: 'Other/PageTwo'
               }
