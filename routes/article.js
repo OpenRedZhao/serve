@@ -20,14 +20,14 @@ router.post('/add', async(req, res, next) => {
 
 /* 更新博客接口 */
 router.post('/update', async(req, res, next) => {
-  let {article_id, title, content, video_url } = req.body
+  let {article_id, video_url } = req.body
   let {username} = req.user
   try {
     let userSql = 'select id from user where username = ?'
     let user = await querySql(userSql,[username])
     let user_id = user[0].id
-    let sql = 'update article set title = ? , content = ? , video_url = ? where id = ? and user_id = ?'
-    let result = await querySql(sql, [title, content, video_url, article_id, user_id])
+    let sql = 'update article set video_url = ? where id = ? and user_id = ?'
+    let result = await querySql(sql, [video_url, article_id, user_id])
     res.send({code:0,msg:'更新成功',data:null})
   }catch(e){
     console.log(e)
