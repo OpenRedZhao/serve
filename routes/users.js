@@ -94,12 +94,25 @@ router.post('/login', async(req, res, next) => {
               url: 'Home/Home'
           },
           {
-              path: '/video',
-              name: 'video',
-              label: '视频管理页',
-              icon: 'video-play',
-              url: 'VideoManage/VideoManage'
-          }
+            label: '发布管理页',
+            icon: 'location',
+            children: [
+            {
+                path: '/page1',
+                name: 'page1',
+                label: '发布列表',
+                icon: 'setting',
+                url: 'Other/PageOne'
+            },
+            {
+                path: '/page2',
+                name: 'page2',
+                label: '页面',
+                icon: 'setting',
+                url: 'Other/PageTwo'
+            }
+        ]
+    }
       ]
        //生成token 存储信息 密钥 过期时间
        let token = jwt.sign({username}, PRIVATE_KEY, {expiresIn:EXPIRESD})
